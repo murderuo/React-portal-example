@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+nav {
+  display: inline;
+  text-align: center;
+}
+ul > li {
+  list-style: none;
+  text-align: center;
+  display: inline;
+  padding: 10px;
+  margin: 10px;
+  background: #eee;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+img {
+  width: 100px;
+  height: 100px;
+  display: inline;
+}
+.card {
+  display: inline-block;
+  border: 1px solid #ccc;
+  width: 100px;
+  margin: 10px;
+  padding: 15px;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 15px;
+}
