@@ -23,15 +23,17 @@ function Products() {
     } */
   }, []);
   return (
-    <div className='container'>
+    <div className="container">
       {data.map(item => (
-          <div key={item.id}className="card">
-            <div className="image"><img src={item.image} alt="" /></div>
-            {/* <div className="desc">{item.description}</div> */}
-            <div className="title">{item.title}</div>
-            <div className="price">{item.price}</div>
+        <div key={item.id} className="card">
+          <div className="image">
+            <img src={item.image} alt="" />
           </div>
-        
+          {/* <div className="desc">{item.description}</div> */}
+          <div className="title">{item.title}</div>
+          {/* <div className="price">{item.price}$</div> */}
+          <button className="price">{item.price}$</button>
+        </div>
       ))}
     </div>
   );
