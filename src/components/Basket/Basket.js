@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
-import {BasketContext} from '../../context/BasketContext';
-import withContext from '../hoc/withContext';
+import React from "react";
+import withContext from "../hoc/withContext";
 
 function Basket(props) {
-  // const { baskets } = useContext(BasketContext);
-  // console.log(baskets);
-  console.log(props);
+  // console.log(props); // gettin baskets and setBaskets from withContext
 
   return (
     <div className="container">
@@ -14,4 +11,4 @@ function Basket(props) {
   );
 }
 
-export default withContext(Basket) ;
+export default withContext(Basket);
