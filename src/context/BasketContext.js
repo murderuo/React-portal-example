@@ -5,7 +5,7 @@ export const BasketContext = createContext();
 
 const BasketProvider = ({ children }) => {
 
-  const [baskets, setBaskets] = useState([]);
+  const [baskets, setBaskets] = useState([{test: 'test'}]);
 
   const values={baskets,setBaskets}
 
