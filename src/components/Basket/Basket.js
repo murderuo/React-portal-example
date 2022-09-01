@@ -1,12 +1,34 @@
-import React from "react";
-import withContext from "../hoc/withContext";
+import './Basket.css';
+import React, { useState } from 'react';
+import withContext from '../hoc/withContext';
 
 function Basket(props) {
-  // console.log(props); // gettin baskets and setBaskets from withContext
+  const { baskets, setBaskets } = props;
 
-  return (
+  // const [isLoading, setIsLoading] = useState(true);
+
+  return !baskets ? (
     <div className="container">
-      This is Basket Page,context value is {JSON.stringify(props.baskets)}
+      <h1>Loading...</h1>
+    </div>
+  ) : (
+    <div className="container">
+      {baskets.map(item => (
+        <div key={item.id} className="basket-card">
+          <div className="basket-image">
+            <img src={item.image} alt="" />
+          </div>
+          {/* <div className="desc">{item.description}</div> */}
+          <div className="basket-title">{item.title}</div>
+          <div className="basket-price">
+            {item.price}${' '}
+            
+          </div>
+        </div>
+      ))}
+      <div className="basket-total">
+        <h2>Total: {baskets.reduce((a, b) => a + b.price, 0)}$</h2>
+      </div>
     </div>
   );
 }

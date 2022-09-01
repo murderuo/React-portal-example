@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 50%;
+  height: 100%;
+  display: block;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 20px auto;
+}
+.basket-card {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid;
+  padding: 10px;
+  text-align: left;
+}
+.basket-image {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  /* border: 1px solid; */
+}
+.basket-title {
+  display: inline-block;
+  text-align: left;
+  width: 33%;
+  /* border: 1px solid; */
+}
+.basket-price {
+  display: inline-block;
+  width: 33%;
+  text-align: right;
+  /* border: 1px solid; */
+}
+
+.basket-image > img {
+  display: inline;
+  width: 40px;
+  height: 40px;
+}
+.basket-total > h2 {
+  text-align: right;
+  margin: 10px;
+}

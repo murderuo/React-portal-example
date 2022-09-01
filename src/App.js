@@ -6,7 +6,7 @@ import BasketProvider from "./context/BasketContext";
 function App() {
   return (
     <div>
-      <h1>This is Portal App</h1>
+      <h1>This is FakeStore App</h1>
       <BasketProvider>
         <BrowserRouter>
           <NavBar />

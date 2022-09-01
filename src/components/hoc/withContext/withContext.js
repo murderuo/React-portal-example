@@ -9,13 +9,6 @@ const withContext = (WrappedComponent) => {
     );
   };
   return NewComponent;
-  //   return (props) => {
-  //     const { baskets, setBaskets } = useContext(BasketContext);
-
-  //     return (
-  //       <WrappedComponent baskets={baskets} setBaskets={setBaskets} {...props} />
-  //     );
-  //   };
 };
 
 export default withContext;
