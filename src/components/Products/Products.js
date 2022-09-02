@@ -4,30 +4,37 @@ import './index.css';
 import withSearch from '../hoc/withSearch';
 
 function Products(props) {
+  // const { baskets, setBaskets, searchValue, products, setProducts } = props;
   const { baskets, setBaskets, searchValue } = props;
-  console.log(props);
+  // console.log(props);
   const [data, setData] = useState([]);
   const [tempdata, setTempdata] = useState([]);
-  // const { baskets, setBaskets } = useContext(BasketContext);
-  // const [filteredData, setFilteredData] = useState([]);
-  // const [search, setSearch] = useState('');
-  // const [showShoppingList, setShowShoppingList] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  console.log(searchValue);
 
   const getData = async () => {
     const res = await axios.get('https://fakestoreapi.com/products');
     // console.log(res.data);
     setData(res.data);
+    // setProducts(res.data);
     setTempdata(res.data);
     setIsLoading(false);
   };
 
+  // const settingTempData = () => {
+  //   console.log('here-4');
+  //   console.log(products);
+  //   setData(products);
+  //   setIsLoading(false);
+  // };
+
   useEffect(() => {
+    // products.length === 0 ? getData() : settingTempData(); //when com. first time render we will check data length, if it is 0 then get data else setTempdata
     getData();
   }, []);
 
+  //when search input changes this function will be called
   useEffect(() => {
+    // console.log('here',searchValue);
     const filteredData = data.filter(item =>
       item.title.toLowerCase().includes(searchValue.toLowerCase()),
     );

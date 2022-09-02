@@ -4,6 +4,8 @@ export const BasketContext = createContext();
 
 const BasketProvider = ({ children }) => {
   const [baskets, setBaskets] = useState([]);
+  // const [products,setProducts]=useState([])
+  // const values = { baskets, setBaskets,products,setProducts };
   const values = { baskets, setBaskets };
 
   return (

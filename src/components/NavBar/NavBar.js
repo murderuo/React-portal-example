@@ -4,9 +4,9 @@ import Home from '../Home/';
 import Products from '../Products/';
 import Basket from '../Basket';
 import withSearch from '../hoc/withSearch/withSearch';
+import { DebounceInput } from 'react-debounce-input';
 
 function NavBar({ baskets, search, setSearch }) {
-  console.log();
   return (
     <div>
       <div className="menu-container">
@@ -24,7 +24,15 @@ function NavBar({ baskets, search, setSearch }) {
           </ul>
         </nav>
         <div className="search">
-          <input type="text" onChange={e => setSearch(e.target.value)} />
+          {/* <input type="text" onChange={e => setSearch(e.target.value)} /> */}
+          {/* debounce input */}
+          <DebounceInput
+            minLength={2}
+            element="input"
+            placeholder={'Search...'}
+            debounceTimeout={300}
+            onChange={e => setSearch(e.target.value)}
+          />
           {/* <label>Search Value: {search}</label> */}
         </div>
         <div className="basket" id="basket">
