@@ -1,18 +1,17 @@
-import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
-import './index.css';
-import withSearch from '../hoc/withSearch';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import "./index.css";
+import withSearch from "../hoc/withSearch";
 
 function Products(props) {
-  // const { baskets, setBaskets, searchValue, products, setProducts } = props;
   const { baskets, setBaskets, searchValue } = props;
-  // console.log(props);
+
   const [data, setData] = useState([]);
   const [tempdata, setTempdata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
-    const res = await axios.get('https://fakestoreapi.com/products');
+    const res = await axios.get("https://fakestoreapi.com/products");
     // console.log(res.data);
     setData(res.data);
     // setProducts(res.data);
@@ -20,28 +19,22 @@ function Products(props) {
     setIsLoading(false);
   };
 
-  // const settingTempData = () => {
-  //   console.log('here-4');
-  //   console.log(products);
-  //   setData(products);
-  //   setIsLoading(false);
-  // };
 
   useEffect(() => {
-    // products.length === 0 ? getData() : settingTempData(); //when com. first time render we will check data length, if it is 0 then get data else setTempdata
     getData();
   }, []);
 
   //when search input changes this function will be called
   useEffect(() => {
     // console.log('here',searchValue);
-    const filteredData = data.filter(item =>
-      item.title.toLowerCase().includes(searchValue.toLowerCase()),
+    const filteredData = data.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase())
     );
     setData(filteredData);
-    if (searchValue === '') {
+    if (searchValue === "") {
       setData(tempdata);
     }
+    //eslint-disable-next-line
   }, [searchValue]);
 
   return isLoading ? (
@@ -52,22 +45,22 @@ function Products(props) {
     <div className="container">
       <div id="details"></div>
       {/* //modal window open will be here */}
-      {data.map(item => (
+      {data.map((item) => (
         <div key={item.id} className="card">
           <div className="image">
-            <img src={item.image} alt="" onClick={() => alert('test')} />
+            <img src={item.image} alt="" onClick={() => alert("test")} />
           </div>
           <div className="title">{item.title}</div>
           <div className="price">
-            {item.price}${' '}
+            {item.price}${" "}
             <button
               className="add"
               onClick={() => setBaskets([...baskets, item])}
-              disabled={baskets.find(basket => basket.id === item.id)}
+              disabled={baskets.find((basket) => basket.id === item.id)}
             >
-              {baskets.find(basket => basket.id === item.id)
-                ? 'Added'
-                : 'Add Basket'}
+              {baskets.find((basket) => basket.id === item.id)
+                ? "Added"
+                : "Add Basket"}
             </button>
           </div>
         </div>
