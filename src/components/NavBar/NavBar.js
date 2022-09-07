@@ -1,10 +1,10 @@
-import './index.css';
-import { Link, Routes, Route } from 'react-router-dom';
-import Home from '../Home/';
-import Products from '../Products/';
-import Basket from '../Basket';
-import withSearch from '../hoc/withSearch/withSearch';
-import { DebounceInput } from 'react-debounce-input';
+import "./index.css";
+import { Link, Routes, Route } from "react-router-dom";
+import Home from "../Home/";
+import Products from "../Products/";
+import Basket from "../Basket";
+import withSearch from "../hoc/withSearch/withSearch";
+import { DebounceInput } from "react-debounce-input";
 
 function NavBar({ baskets, search, setSearch }) {
   return (
@@ -21,10 +21,13 @@ function NavBar({ baskets, search, setSearch }) {
             <li>
               <Link to="/basket">Basket</Link>
             </li>
+            {/* <li>
+              <Link to="/test">Test</Link>
+            </li> */}
           </ul>
         </nav>
         <div className="search">
-          {/* <input type="text" onChange={e => setSearch(e.target.value)} /> */}
+          {/* <input type="text" onChange={(e) => setSearch(e.target.value)} /> */}
           {/* debounce input */}
           <DebounceInput
             minLength={2}
@@ -55,14 +58,15 @@ function NavBar({ baskets, search, setSearch }) {
           </ul>
         </div>
       </div>
-      {/* {console.log(search)} */}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route
           path="/products"
           element={<Products searchValue={search} />}
+          // element={<Products />}
         ></Route>
         <Route path="/basket" element={<Basket />}></Route>
+        {/* <Route path="/test" element={<Test />}></Route> */}
       </Routes>
     </div>
   );

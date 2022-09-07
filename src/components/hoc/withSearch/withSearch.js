@@ -5,7 +5,9 @@ const withSearch = WrappedComponent => {
   const NewComponent = props => {
     const [search, setSearch] = useState('');
     // const { baskets, setBaskets, products, setProducts } = useContext(BasketContext);
-    const { baskets, setBaskets,  } = useContext(BasketContext);
+    const { baskets, setBaskets, } = useContext(BasketContext);
+
+    
 
     return (
       <WrappedComponent

@@ -1,13 +1,11 @@
 import axios from 'axios';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css';
 import withSearch from '../hoc/withSearch';
-import ProductModal from '../ProductsModal';
 
 function Products(props) {
-  // const { baskets, setBaskets, searchValue, products, setProducts } = props;
   const { baskets, setBaskets, searchValue } = props;
-  // console.log(props);
+
   const [data, setData] = useState([]);
   const [tempdata, setTempdata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,15 +20,7 @@ function Products(props) {
     setIsLoading(false);
   };
 
-  // const settingTempData = () => {
-  //   console.log('here-4');
-  //   console.log(products);
-  //   setData(products);
-  //   setIsLoading(false);
-  // };
-
   useEffect(() => {
-    // products.length === 0 ? getData() : settingTempData(); //when com. first time render we will check data length, if it is 0 then get data else setTempdata
     getData();
   }, []);
 
@@ -44,6 +34,7 @@ function Products(props) {
     if (searchValue === '') {
       setData(tempdata);
     }
+    //eslint-disable-next-line
   }, [searchValue]);
 
   return isLoading ? (
@@ -52,7 +43,7 @@ function Products(props) {
     </div>
   ) : (
     <>
-        <div id="details"></div>
+      <div id="details"></div>
       <div className="container">
         {/* //modal window open will be here */}
         {data.map(item => (
