@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './index.css';
 import withSearch from '../hoc/withSearch';
+import ProductModal from '../ProductsModal';
 
 function Products(props) {
   const { baskets, setBaskets, searchValue } = props;
