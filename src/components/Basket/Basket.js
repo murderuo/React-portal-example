@@ -27,7 +27,7 @@ function Basket(props) {
         </div>
       ))}
       <div className="basket-total">
-        <h2>Total: {baskets.reduce((a, b) => a + b.price, 0)}$</h2>
+        <h2>Total: {baskets.reduce((a, b) => a + b.price, 0).toFixed(3)}$</h2>
       </div>
     </div>
   );

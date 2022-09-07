@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
 import './index.css';
 import withSearch from '../hoc/withSearch';
+import ProductModal from '../ProductsModal';
 
 function Products(props) {
   // const { baskets, setBaskets, searchValue, products, setProducts } = props;
@@ -10,6 +11,7 @@ function Products(props) {
   const [data, setData] = useState([]);
   const [tempdata, setTempdata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const getData = async () => {
     const res = await axios.get('https://fakestoreapi.com/products');
@@ -49,30 +51,41 @@ function Products(props) {
       <h1>Loading...</h1>
     </div>
   ) : (
-    <div className="container">
-      <div id="details"></div>
-      {/* //modal window open will be here */}
-      {data.map(item => (
-        <div key={item.id} className="card">
-          <div className="image">
-            <img src={item.image} alt="" onClick={() => alert('test')} />
+    <>
+        <div id="details"></div>
+      <div className="container">
+        {/* //modal window open will be here */}
+        {data.map(item => (
+          <div key={item.id} className="card">
+            <div className="image">
+              <img
+                src={item.image}
+                alt=""
+                onClick={() => setIsOpenModal(true)}
+              />
+            </div>
+            <div className="title">{item.title}</div>
+            <div className="price">
+              {item.price}${' '}
+              <button
+                className="add"
+                onClick={() => setBaskets([...baskets, item])}
+                disabled={baskets.find(basket => basket.id === item.id)}
+              >
+                {baskets.find(basket => basket.id === item.id)
+                  ? 'Added'
+                  : 'Add Basket'}
+              </button>
+            </div>
           </div>
-          <div className="title">{item.title}</div>
-          <div className="price">
-            {item.price}${' '}
-            <button
-              className="add"
-              onClick={() => setBaskets([...baskets, item])}
-              disabled={baskets.find(basket => basket.id === item.id)}
-            >
-              {baskets.find(basket => basket.id === item.id)
-                ? 'Added'
-                : 'Add Basket'}
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+
+        <ProductModal
+          isOpenModal={isOpenModal}
+          setIsOpenModal={setIsOpenModal}
+        />
+      </div>
+    </>
   );
 }
 

@@ -5,8 +5,7 @@ import withSearch from '../hoc/withSearch';
 function Home() {
   return (
     <div className={styles.container}>
-      This is Home Page
-      <div className="slidebar"></div>
+      <h1> This is Home Page</h1>
     </div>
   );
 }

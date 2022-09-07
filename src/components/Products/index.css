@@ -30,6 +30,14 @@ img:hover {
   border: 1px solid #ccc;
   padding: 15px;
   margin: 20px auto;
+  /* position: relative; */
+}
+
+.details {
+  border: 1px solid #ccc;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 200px;
 }
 .title {
   width: 100%;
